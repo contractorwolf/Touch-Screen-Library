@@ -21,6 +21,10 @@ TouchScreen ts = TouchScreen(XP, YP, XM, YM, 300);
 
 void setup(void) {
   Serial.begin(9600);
+  Serial.print("touchscreen started");
+  
+  
+  
 }
 
 void loop(void) {
@@ -30,8 +34,25 @@ void loop(void) {
   // we have some minimum pressure we consider 'valid'
   // pressure of 0 means no pressing!
   if (p.z > MINPRESSURE && p.z < MAXPRESSURE) {
-     Serial.print("X = "); Serial.print(p.x);
-     Serial.print("\tY = "); Serial.print(p.y);
-     Serial.print("\tPressure = "); Serial.println(p.z);
+     //BEGIN CHNAGES
+     /*
+     Serial.print("X = "); 
+     Serial.print(p.x);
+     Serial.print("\tY = "); 
+     Serial.print(p.y);
+     Serial.print("\tPressure = "); 
+     Serial.println(p.z);
+     */
+     Serial.print(p.x);
+     Serial.print(","); 
+     Serial.print(p.y);
+     Serial.print(","); 
+     Serial.print(p.z);
+     Serial.print("*"); 
+     //END CHNAGES
+     
+  }else{
+    //Serial.println("no touch");
+    
   }
 }
